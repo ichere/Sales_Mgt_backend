@@ -3,36 +3,54 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, OneToMan
 import { Store } from './Store';
 import { Sale } from './Sale';
 
-@Entity()
+@Entity('product', { schema: 'public' })
 export class Product  {
-    @PrimaryGeneratedColumn()
-    id: number; 
+    static entityName = 'Product';
 
-    @Column()
+    public entityName: string = Product.entityName;
+
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
+
+    @Column({
+        type: 'character varying',
+        length: 256,
+        comment: 'Name of the Product.',
+    })
     name: string;
 
-    @Column()
+    @Column('integer', {
+        comment: 'The unit price of each product.'
+    })
     unitPrice: number;
 
-    @Column()
+    @Column('integer', {
+        comment: 'The quantity of the product.'
+    })
     quantity: number;
 
-    @Column()
+    @Column('integer', {
+        comment: 'The serial number of each product.'
+    })
     serialNumber: number;
 
-    @Column()
+    @Column('text', {
+        comment: 'The description of each product.'
+    })
     description: string;
 
     @CreateDateColumn()
     createdAt: Date;
 
-    @UpdateDateColumn()
+    @UpdateDateColumn({ nullable: true })
     updatedAt: Date | null;
 
-    @DeleteDateColumn()
+    @DeleteDateColumn({ nullable: true })
     deletedAt: Date | null;
 
-    @Column()
+    @Column('uuid', {
+        comment: 'The Store the product belongs to.'
+    })
     storeId: string;
 
     @ManyToOne(() => Store, (store) => store.products)

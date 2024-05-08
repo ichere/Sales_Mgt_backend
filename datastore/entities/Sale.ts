@@ -2,18 +2,28 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 import { Product } from './Product';
 
-@Entity()
+@Entity('sale', { schema: 'public' })
 export class Sale  {
-    @PrimaryGeneratedColumn()
-    id: number;
+    static entityName = 'Sale';
 
-    @Column()
+    public entityName: string = Sale.entityName;
+
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
+
+    @Column('integer', {
+        comment: 'The total quantity of each product sold.'
+    })
     quantity: number;
 
-    @Column()
+    @Column('integer', {
+        comment: 'The total of the sales made.'
+    })
     total: number;
 
-    @Column()
+    @Column('uuid', {
+        comment: 'The Product that was sold.'
+    })
     productId: string;
 
     @ManyToOne(() => Product, (product) => product.sales)
