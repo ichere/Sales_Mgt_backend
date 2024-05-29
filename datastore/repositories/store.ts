@@ -6,12 +6,12 @@ import { AbstractRepository, EntityNotFoundError, EntityRepository } from "typeo
 @EntityRepository(Store)
 export class SQLStoreRepository extends AbstractRepository<Store> implements StoreRepository{
     public async create(vars: CreateStoreVariables): Promise<Store> {
-        const store = await this.repository.save(vars);
+        const store = await this.repository.save({});
         return store;
     }
     public async update(id: string, vars: UpdateStoreVariables): Promise<Store> {
         const store = await this.findByIdOrFail(id);
-        return this.repository.save({...store, ...vars});
+        return this.repository.save({});
     }
     public async findById(id: string): Promise<Store | undefined> {
         const store = await this.repository.findOne(id);
