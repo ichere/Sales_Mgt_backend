@@ -6,6 +6,7 @@ import { UtilsService } from "./utils";
 import { UserService } from "./user";
 import { StoreService } from "./store";
 import { ProductService } from "./product";
+import { SaleService } from "./sale";
 
 export {
     AuthenticationService,
@@ -16,4 +17,5 @@ export {
     UserService,
     StoreService,
     ProductService,
+    SaleService,
 };

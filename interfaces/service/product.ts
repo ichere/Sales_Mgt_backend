@@ -18,4 +18,4 @@ export interface ProductService {
     findByIds(user: User, ids: string[]): Promise<Product[]>;
     delete(user: User, id: string): Promise<boolean>;
     findAll(user: User, vars: FindAllVars): Promise<Product[]>;
-  }
+}
