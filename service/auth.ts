@@ -6,7 +6,7 @@ import { UserRepository } from 'interfaces/repository';
 import { SignTokenOptions, SignTokenVars } from 'interfaces/service/auth';
 
 import { AuthenticationService } from 'interfaces/service/auth';
-import { TOKEN_KEY } from 'utils';
+import { TOKEN_KEY } from 'utils/config';
 
 export class AuthenticationServiceImpl implements AuthenticationService{
     public constructor(private userRepository: UserRepository) {}

@@ -38,6 +38,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.1639.0",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "cross-var": "^1.1.0",
