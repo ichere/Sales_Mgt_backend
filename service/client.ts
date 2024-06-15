@@ -3,7 +3,7 @@ import { SES } from 'aws-sdk';
 import { NotificationClient } from 'interfaces/service';
 import { EmailPayload } from 'interfaces/service/client'; 
 import { EMAIL_CONFIG } from 'utils/config/email'; 
-import { stripHtml } from 'utils/config/html'; 
+import { stripHtml } from 'utils/html'; 
 
 export class EmailService implements NotificationClient {
   public constructor(
